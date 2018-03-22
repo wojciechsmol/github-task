@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Repos</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<th:block th:replace="fragments/nav"></th:block>
+<div class="container">
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Language</th>
+        <th>Url (API)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="repo : ${repos}">
+        <td th:text="${repo.id}">1</td>
+        <td th:text="${repo.name}">Name</td>
+        <td th:text="${repo.language}">Java</td>
+        <td ><a th:text="${repo.url}" th:href="${repo.url}">Link</a></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="container">
+    <a href="/userInfo" class="btn btn-primary" role="button">Go Back</a>
+</div>
+</body>
+</html>

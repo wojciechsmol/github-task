@@ -1,0 +1,25 @@
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+        <div class="">
+          <span class="navbar-brand">Github Task</span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li >
+                    <a href="#" th:href="@{/userInfo}">User Info</a>
+                </li>
+                <li>
+                    <a href="#" th:href="@{/userInfo/repos}">Repos</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li th:if="${#authorization.expression('isAuthenticated()')}">
+                    <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout
+                    </a>
+                    <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
